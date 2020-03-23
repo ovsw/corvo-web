@@ -34,6 +34,11 @@ const ColWrapper = styled.div`
 `
 const LeftCol = styled.div`
   ${tw`md:w-3/4  `};
+  p {
+    font-size: 0.6rem;
+    padding: 5px;
+    margin-left: .5rem;
+  }
 `
 const RightCol = styled.div`
   ${tw` text-right md:w-1/4 `};

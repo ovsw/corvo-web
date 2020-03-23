@@ -12,10 +12,10 @@ const ItemWrapper = styled(Link)`
   ${tw`rounded-lg overflow-hidden`};
   margin-bottom: 5rem;
   background-color: white;
-  ${props => (props.square ? '' : 'border-radius: 1000rem 1000rem 0 0;')};
+  ${props => (props.square===1 ? '' : 'border-radius: 1000rem 1000rem 0 0;')};
   border: 7px solid white;
   ${props =>
-    props.clean
+    props.clean === 1
       ? 'box-shadow: 10px 10px 0px 7px rgba(193, 97, 31, 0.3)'
       : 'box-shadow: 20px 15px 0px 10px rgba(193, 97, 31, 0.3), 30px -20px 0px 0px rgba(193, 97, 31, 0.3),5px 5px 5px 0px rgba(0, 0, 0, 0.1);'};
   @media (min-width: 600px) {
@@ -30,13 +30,13 @@ function BlogPostPreviewItem({
   mainImage,
   _rawExcerpt,
   mode,
-  square = false,
-  clean = false,
+  square,
+  clean
 }) {
   const itemUrl = mode === 'posts' ? getBlogUrl(publishedAt, slug.current) : `/events/${slug.current}`
 
   return (
-    <ItemWrapper to={itemUrl} square={square} clean={clean}>
+    <ItemWrapper to={itemUrl} square={square ? 1 : 0} clean={clean ? 1 : 0}>
       {mainImage && mainImage.asset && (
         <img
           src={imageUrlFor(buildImageObj(mainImage))

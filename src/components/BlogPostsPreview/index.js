@@ -32,7 +32,7 @@ function BlogPostPreviewGrid({ title, browseMoreHref, mode, nodes }) {
           {nodes &&
             nodes.map(node => (
               <BlogPost key={node.id}>
-                <Post {...node} mode={mode} clean />
+                <Post {...node} mode={mode} clean  />
                 {/* mode can be either events or posts. it's used to form the url to the individual page. */}
               </BlogPost>
             ))}
