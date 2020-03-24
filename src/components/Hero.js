@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
+import BlockContent from './block-content'
+
 // images
 import PaintedWoodTexture2 from '../images/h4-slide-33.jpg'
 import PizzaPlaceholder from '../images/Margareets3.png'
@@ -18,10 +20,10 @@ const HeroHeading = styled(BigTitle)`
 `
 
 const GrubHubLink = styled.a`
-  ${tw`px-6 py-4 pt-6 text-lg md:text-xl uppercase font-typewritter`};
+  ${tw`inline-block px-6 py-4 pt-6 text-lg md:text-xl uppercase font-typewritter mb-4`};
   color: white;
   text-shadow: 0 0 3px #ded1c1;
-  background-color:  ${props => props.alternate ? '#ff4c00' : 'red' };
+  background-color:  ${props => props.alternate ? '#2e7c87' : 'red' };
   border-radius: 10px;
   box-shadow: #c1611f 0px 0px 14px;
   cursor: pointer;
@@ -80,8 +82,8 @@ const Intro = styled.p`
   text-shadow: rgba(251, 29, 37, 0.86) 0px 0px 16.49px;
 `
 
-const Paragraph = styled.p`
-  ${tw`leading-normal mb-1  text-xl font-typewritter`};
+const Paragraph = styled.div`
+  ${tw`leading-normal mb-1  text-lg font-typewritter mt-3`};
   color: #ccc;
   span {
     background-color: black;
@@ -90,7 +92,7 @@ const Paragraph = styled.p`
   ${props => props.second ?'margin-top: 2rem' : '' }
 `
 
-const Hero = () => (
+const Hero = ({heroText}) => (
   <SectionStyled>
     {/* <FireGradient /> */}
     <Container>
@@ -99,26 +101,29 @@ const Hero = () => (
         <LeftCol className="LeftCol">
           <Intro className="Intro">Stay safe</Intro>
           <HeroHeading>Order Online</HeroHeading>
-          <Paragraph>
+          {/* <Paragraph>
             <span>Delivery</span>
-          </Paragraph>
+          </Paragraph> */}
           <GrubHubLink
             href="https://grubhub.com/restaurant/corvo-bianco-490-us-19-alt-palm-harbor/1711255?classicAffiliateId=%2Fr%2Fw%2F1711255%2F&utm_source=kitchen.grubhub.com&utm_medium=OOL&utm_campaign=order%20online&utm_content=1711255"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span>Order with GubHub</span>
+            <span>Delivery (GrubHub)</span>
           </GrubHubLink>
-          <Paragraph second={true}>
+          {/* <Paragraph second={true}>
             <span>Pick-up</span>
-          </Paragraph>
+          </Paragraph> */}
           <GrubHubLink
             href="https://www.toasttab.com/corvo-bianco/v3"
             target="_blank" rel="noopener noreferrer"
             alternate={true}
           >
-            <span>Order with ToastTab</span>
+            <span>Pick-up (ToastTab)</span>
           </GrubHubLink>
+          <Paragraph>
+          <BlockContent blocks={heroText} />
+          </Paragraph>
         </LeftCol>
         {/* right col */}
         <RightCol className="RightCol">
