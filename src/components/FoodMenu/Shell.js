@@ -60,7 +60,7 @@ const IngredientsLink = styled.div`
   }
 `
 
-const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate }) => (
+const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate, antipasti }) => (
   <MenuSection>
     <MenuTitle>
       Our Menu for this week <span>(changes weekly)</span>
@@ -90,11 +90,25 @@ const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate }) => (
           <span>(sandwiches made on wood fired pizza dough bread)</span>
         </CategoryTitle>
         <FoodMenuList items={puccia} />
+        {insalate.length > 0 && (
+        <>
         <CategoryTitle hot centered>
           Salads
           <span>(served in wood fired pizza dough bowls)</span>
         </CategoryTitle>
         <FoodMenuList items={insalate} />
+        </>
+        )}
+        
+        {antipasti.length > 0 && (
+        <>
+        <CategoryTitle hot centered>
+          Antipasti
+          <span>(first course)</span>
+        </CategoryTitle>
+        <FoodMenuList items={antipasti} />
+        </>
+        )}
       </div>
     </div>
   </MenuSection>

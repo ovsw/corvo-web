@@ -207,9 +207,9 @@ async function createInsalateMenuItemPages(graphql, actions, reporter) {
   if (result.errors) throw result.errors
 
   // const insalateCurrMenu = result.data.sanityMenuSettings.insalateCurrMenu || []
-  const dessertPizzaEdges = (result.data.allSanityInsalata || {}).edges || []
+  const insalateEdges = (result.data.allSanityInsalata || {}).edges || []
 
-  dessertPizzaEdges.forEach(edge => {
+  insalateEdges.forEach(edge => {
     const { id, slug = {} } = edge.node
     const path = `/menu/${slug.current}/`
 
@@ -223,6 +223,42 @@ async function createInsalateMenuItemPages(graphql, actions, reporter) {
   })
 }
 
+async function createAntipastiMenuItemPages(graphql, actions, reporter) {
+  const { createPage } = actions
+  const result = await graphql(`
+    {
+      allSanityAntipasti {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  // const insalateCurrMenu = result.data.sanityMenuSettings.insalateCurrMenu || []
+  const antipastiEdges = (result.data.allSanityAntipasti || {}).edges || []
+
+  antipastiEdges.forEach(edge => {
+    const { id, slug = {} } = edge.node
+    const path = `/menu/${slug.current}/`
+
+    reporter.info(`Creating Antipasti Menu page: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/antipasti-menu-item.js'),
+      context: { id },
+    })
+  })
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createBlogPostPages(graphql, actions, reporter)
   await createEventPages(graphql, actions, reporter)
@@ -230,4 +266,5 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createDessertPizzaMenuItemPages(graphql, actions, reporter)
   await createPucciaMenuItemPages(graphql, actions, reporter)
   await createInsalateMenuItemPages(graphql, actions, reporter)
+  await createAntipastiMenuItemPages(graphql, actions, reporter)
 }
