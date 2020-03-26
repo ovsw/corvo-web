@@ -53,8 +53,22 @@ const SectionTitle = styled.h2`
     }
   }
 `
+const SectionTitleSmall = styled.h2`
+  ${tw`text-center font-chalk uppercase text-5xl md:text-5xl leading-none`};
+  text-shadow: rgb(150, 50, 50) 0px 0px 1px, rgb(28, 151, 151) 3px 3px 1px;
+  @media (min-width: 600px) {
+    text-shadow: rgb(150, 50, 50) 0px 0px 1px, rgb(28, 151, 151) 3px 3px 0px, rgba(28, 151, 151, 0.5) 3px 3px 10px;
+  }
+  span {
+    text-shadow: none;
+    ${tw`block font-typewritter lowercase text-xl mt-4 mb-2`};
+    strong {
+      ${tw`underline`};
+    }
+  }
+`
 const IntroPara = styled.p`
-  ${tw`text-center font-typewritter text-lg md:text-xl px-2 mt-8 max-w-lg mx-auto leading-loose`};
+  ${tw`text-center font-typewritter text-lg md:text-xl px-2 mt-4 max-w-lg mx-auto leading-loose mb-10`};
   span {
     line-height: 2rem;
     ${tw`py-2 px-2`};
@@ -123,6 +137,20 @@ const contentMap = [
 const Highlights = () => (
   <HpSection>
     <Container>
+      <SectionTitleSmall>
+        Online orders Only, for now
+      </SectionTitleSmall>
+      <IntroPara>
+      To maintain the safety of all we will not be accepting any orders or form of payment in person. All orders must be done online. If you walk up or approach from the trail you can quickly order from your smart device.
+      </IntroPara>
+      <SectionTitleSmall>
+        Pickup vs. Delivery
+      </SectionTitleSmall>
+      <IntroPara>
+      Please keep in mind Grub Hub may be inundated with orders at the present time and pick up (ToastTab) may be your quicker option. 
+      <br></br>
+       We will make it easy to drive up and pick up your items if you do not want to get out of the car. Thank you for your understanding during this difficult and uncharted time.
+      </IntroPara>
       <SectionTitle>
         <span>"Neo-what Pizza?"</span> Neapolitan <br />
         <span>

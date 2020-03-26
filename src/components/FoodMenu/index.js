@@ -10,8 +10,7 @@ const FoodMenu = () => (
       if (!data.sanityMenuSettings) {
         throw new Error('Problem with missing menu items in backend. Please check and add as needed.')
       }
-
-      const { savoryPizzaCurrMenu, dessertPizzaCurrMenu, pucciaCurrMenu, insalateCurrMenu } = data.sanityMenuSettings
+      const { savoryPizzaCurrMenu, dessertPizzaCurrMenu, pucciaCurrMenu, insalateCurrMenu, antipastiCurrMenu } = data.sanityMenuSettings
       // console.log(desertPizzaCurrMenu)
       return (
         <>
@@ -20,6 +19,7 @@ const FoodMenu = () => (
             dessertPizzas={dessertPizzaCurrMenu}
             puccia={pucciaCurrMenu}
             insalate={insalateCurrMenu}
+            antipasti={antipastiCurrMenu}
           />
         </>
       )
@@ -107,6 +107,43 @@ const query = graphql`
         }
       }
       pucciaCurrMenu {
+        id
+        name
+        ingredients
+        price
+        slug {
+          current
+        }
+        mainImage {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+            fluid(maxWidth: 700) {
+              ...GatsbySanityImageFluid
+            }
+            fixed(width: 200) {
+              ...GatsbySanityImageFixed
+            }
+          }
+          alt
+        }
+      }
+      antipastiCurrMenu {
         id
         name
         ingredients

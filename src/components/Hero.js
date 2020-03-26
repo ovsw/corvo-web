@@ -4,6 +4,8 @@ import tw from 'tailwind.macro'
 
 import BlockContent from './block-content'
 
+import {TiWarning} from 'react-icons/ti'
+
 // images
 import PaintedWoodTexture2 from '../images/h4-slide-33.jpg'
 import PizzaPlaceholder from '../images/Margareets3.png'
@@ -91,6 +93,9 @@ const Paragraph = styled.div`
   }
   ${props => props.second ?'margin-top: 2rem' : '' }
 `
+const IconWrapper = styled.span`
+  color: red;
+`
 
 const Hero = ({heroText}) => (
   <SectionStyled>
@@ -100,7 +105,7 @@ const Hero = ({heroText}) => (
         {/* left col */}
         <LeftCol className="LeftCol">
           <Intro className="Intro">Stay safe</Intro>
-          <HeroHeading>Order Online</HeroHeading>
+          <HeroHeading>Online orders only</HeroHeading>
           {/* <Paragraph>
             <span>Delivery</span>
           </Paragraph> */}
@@ -123,6 +128,9 @@ const Hero = ({heroText}) => (
           </GrubHubLink>
           <Paragraph>
           <BlockContent blocks={heroText} />
+          </Paragraph>
+          <Paragraph second={true}>
+          <IconWrapper><TiWarning/></IconWrapper> scroll down for more info<IconWrapper> <TiWarning/></IconWrapper>
           </Paragraph>
         </LeftCol>
         {/* right col */}
