@@ -60,7 +60,7 @@ const IngredientsLink = styled.div`
   }
 `
 
-const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate, antipasti }) => (
+const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate, antipasti, specials }) => (
   <MenuSection>
     <MenuTitle>
       Our Menu for this week <span>(changes weekly)</span>
@@ -125,6 +125,17 @@ const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate, antipast
         <FoodMenuList items={antipasti} />
         </>
         )}
+
+        {specials.length > 0 && (
+        <>
+        <CategoryTitle hot centered>
+          Specials
+          <span>(for this week)</span>
+        </CategoryTitle>
+        <FoodMenuList items={specials} />
+        </>
+        )}
+
       </div>
     </div>
   </MenuSection>
