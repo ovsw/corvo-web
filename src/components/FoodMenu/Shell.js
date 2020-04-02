@@ -77,19 +77,35 @@ const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate, antipast
       </div>
 
       <div className="w-fullp-6 flex flex-col flex-grow flex-shrink">
+
+        {savoryPizzas.length > 0 && (
+        <>
         <CategoryTitle hot centered>
           Savory Pizzas
         </CategoryTitle>
         <FoodMenuList items={savoryPizzas} />
+        </>
+        )}
+
+        {dessertPizzas.length > 0 && (
+        <>
         <CategoryTitle hot centered>
           Dessert Pizzas
         </CategoryTitle>
         <FoodMenuList items={dessertPizzas} />
+        </>
+        )}
+
+        {puccia.length > 0 && (
+        <>
         <CategoryTitle hot centered>
           Puccia
           <span>(sandwiches made on wood fired pizza dough bread)</span>
         </CategoryTitle>
         <FoodMenuList items={puccia} />
+        </>
+        )}
+
         {insalate.length > 0 && (
         <>
         <CategoryTitle hot centered>
