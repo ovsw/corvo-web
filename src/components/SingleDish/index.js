@@ -134,6 +134,9 @@ const SingleDish = ({
           insalateCurrMenu {
             id
           }
+          antipastiCurrMenu {
+            id
+          }
         }
       }
     `
