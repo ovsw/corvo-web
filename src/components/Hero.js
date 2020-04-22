@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
+import { TiWarning } from 'react-icons/ti'
 import BlockContent from './block-content'
-
-import {TiWarning} from 'react-icons/ti'
 
 // images
 import PaintedWoodTexture2 from '../images/h4-slide-33.jpg'
@@ -25,7 +24,7 @@ const GrubHubLink = styled.a`
   ${tw`inline-block px-6 py-4 pt-6 text-lg md:text-xl uppercase font-typewritter mb-4`};
   color: white;
   text-shadow: 0 0 3px #ded1c1;
-  background-color:  ${props => props.alternate ? '#2e7c87' : 'red' };
+  background-color: ${props => (props.alternate ? '#2e7c87' : 'red')};
   border-radius: 10px;
   box-shadow: #c1611f 0px 0px 14px;
   cursor: pointer;
@@ -91,13 +90,13 @@ const Paragraph = styled.div`
     background-color: black;
     ${tw`p-1`};
   }
-  ${props => props.second ?'margin-top: 2rem' : '' }
+  ${props => (props.second ? 'margin-top: 2rem' : '')}
 `
 const IconWrapper = styled.span`
   color: red;
 `
 
-const Hero = ({heroText}) => (
+const Hero = ({ heroText }) => (
   <SectionStyled>
     {/* <FireGradient /> */}
     <Container>
@@ -116,21 +115,41 @@ const Hero = ({heroText}) => (
           >
             <span>Delivery (GrubHub)</span>
           </GrubHubLink>
-          {/* <Paragraph second={true}>
-            <span>Pick-up</span>
-          </Paragraph> */}
           <GrubHubLink
             href="https://www.toasttab.com/corvo-bianco/v3"
-            target="_blank" rel="noopener noreferrer"
-            alternate={true}
+            target="_blank"
+            rel="noopener noreferrer"
+            alternate
           >
             <span>Pick-up (ToastTab)</span>
           </GrubHubLink>
+
           <Paragraph>
-          <BlockContent blocks={heroText} />
+            <BlockContent blocks={heroText} />
           </Paragraph>
-          <Paragraph second={true}>
-          <IconWrapper><TiWarning/></IconWrapper> scroll down for more info<IconWrapper> <TiWarning/></IconWrapper>
+          <Paragraph second>
+            <span>
+              HOB is open too!
+              <br /> Beer, wine or cider goes great with pizza:
+            </span>
+          </Paragraph>
+          <GrubHubLink
+            href="https://www.toasttab.com/hob-brewing-co/v3"
+            target="_blank"
+            rel="noopener noreferrer"
+            alternate
+          >
+            <span>HOB Beer (ToastTab)</span>
+          </GrubHubLink>
+          <Paragraph second>
+            <IconWrapper>
+              <TiWarning />
+            </IconWrapper>{' '}
+            scroll down for more info
+            <IconWrapper>
+              {' '}
+              <TiWarning />
+            </IconWrapper>
           </Paragraph>
         </LeftCol>
         {/* right col */}
