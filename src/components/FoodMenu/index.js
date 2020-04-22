@@ -10,7 +10,14 @@ const FoodMenu = () => (
       if (!data.sanityMenuSettings) {
         throw new Error('Problem with missing menu items in backend. Please check and add as needed.')
       }
-      const { savoryPizzaCurrMenu, dessertPizzaCurrMenu, pucciaCurrMenu, insalateCurrMenu, antipastiCurrMenu, specialsCurrMenu } = data.sanityMenuSettings
+      const {
+        savoryPizzaCurrMenu,
+        dessertPizzaCurrMenu,
+        pucciaCurrMenu,
+        insalateCurrMenu,
+        antipastiCurrMenu,
+        specialsCurrMenu,
+      } = data.sanityMenuSettings
       // console.log(desertPizzaCurrMenu)
       return (
         <>
