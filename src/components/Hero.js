@@ -104,7 +104,7 @@ const Hero = ({ heroText }) => (
         {/* left col */}
         <LeftCol className="LeftCol">
           <Intro className="Intro">Stay safe</Intro>
-          <HeroHeading>Online orders only</HeroHeading>
+          <HeroHeading>Online orders</HeroHeading>
           {/* <Paragraph>
             <span>Delivery</span>
           </Paragraph> */}
@@ -141,16 +141,6 @@ const Hero = ({ heroText }) => (
           >
             <span>HOB Beer (ToastTab)</span>
           </GrubHubLink>
-          <Paragraph second>
-            <IconWrapper>
-              <TiWarning />
-            </IconWrapper>{' '}
-            scroll down for more info
-            <IconWrapper>
-              {' '}
-              <TiWarning />
-            </IconWrapper>
-          </Paragraph>
         </LeftCol>
         {/* right col */}
         <RightCol className="RightCol">
