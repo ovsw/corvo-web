@@ -64,6 +64,8 @@ const FoodMenuShell = ({ savoryPizzas, dessertPizzas, puccia, insalate, antipast
   <MenuSection>
     <MenuTitle>
       Our Menu for this week <span>(changes weekly)</span>
+      <br />
+      <span>all items with a Ⓥ can be made vegan or already are, please specify when ordering</span>
     </MenuTitle>
     <div className="container mx-auto flex flex-wrap pt-4 pb-12">
       <div className="w-full mb-4">
