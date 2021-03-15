@@ -108,7 +108,7 @@ const Hero = ({ heroText }) => (
           {/* <Paragraph>
             <span>Delivery</span>
           </Paragraph> */}
-          <GrubHubLink
+          {/* <GrubHubLink
             href="https://grubhub.com/restaurant/corvo-bianco-490-us-19-alt-palm-harbor/1711255?classicAffiliateId=%2Fr%2Fw%2F1711255%2F&utm_source=kitchen.grubhub.com&utm_medium=OOL&utm_campaign=order%20online&utm_content=1711255"
             rel="noopener noreferrer"
             target="_blank"
@@ -122,7 +122,7 @@ const Hero = ({ heroText }) => (
             alternate
           >
             <span>Pick-up (ToastTab)</span>
-          </GrubHubLink>
+          </GrubHubLink> */}
 
           <Paragraph>
             <BlockContent blocks={heroText} />
