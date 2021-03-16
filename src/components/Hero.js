@@ -103,8 +103,8 @@ const Hero = ({ heroText }) => (
       <div className=" flex flex-col md:flex-row items-center md:items-start lg:items-center  text-white">
         {/* left col */}
         <LeftCol className="LeftCol">
-          <Intro className="Intro">Stay safe</Intro>
-          <HeroHeading>Online orders</HeroHeading>
+          <HeroHeading>OHours of Operation:</HeroHeading>
+          <Intro className="Intro">(Subject to change)</Intro>
           {/* <Paragraph>
             <span>Delivery</span>
           </Paragraph> */}
@@ -114,7 +114,13 @@ const Hero = ({ heroText }) => (
             target="_blank"
           >
             <span>Delivery (GrubHub)</span>
-          </GrubHubLink>
+          </GrubHubLink> */}
+
+          <Paragraph>
+            <BlockContent blocks={heroText} />
+            <br></br>
+          </Paragraph>
+
           <GrubHubLink
             href="https://www.toasttab.com/corvo-bianco/v3"
             target="_blank"
@@ -122,17 +128,17 @@ const Hero = ({ heroText }) => (
             alternate
           >
             <span>Pick-up (ToastTab)</span>
-          </GrubHubLink> */}
+          </GrubHubLink>
 
-          <Paragraph>
-            <BlockContent blocks={heroText} />
-          </Paragraph>
+          
           <Paragraph second>
             <span>
-              HOB is open too!
-              <br /> Beer, wine or cider goes great with pizza:
+               Beer, wine or cider goes great with pizza.
+              <br />
+              View HOB's menu here:
             </span>
           </Paragraph>
+          <br></br>
           <GrubHubLink
             href="https://www.toasttab.com/hob-brewing-co/v3"
             target="_blank"
