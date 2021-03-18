@@ -103,7 +103,7 @@ const Hero = ({ heroText }) => (
       <div className=" flex flex-col md:flex-row items-center md:items-start lg:items-center  text-white">
         {/* left col */}
         <LeftCol className="LeftCol">
-          <HeroHeading>OHours of Operation:</HeroHeading>
+          <HeroHeading>Hours of Operation:</HeroHeading>
           <Intro className="Intro">(Subject to change)</Intro>
           {/* <Paragraph>
             <span>Delivery</span>
