@@ -17,7 +17,7 @@ import BigTitle from '../ui/BigTitle'
 import { StyledLink } from '../ui/Button'
 
 const HeroHeading = styled(BigTitle)`
-  ${tw`text-4xl md:text-5xl xl:text-6xl mt-2`}
+  ${tw`text-4xl md:text-5xl xl:text-5xl mt-2`}
 `
 
 const GrubHubLink = styled.a`
@@ -50,10 +50,10 @@ const SectionStyled = styled.section`
 //   background-size: cover;
 // `
 const LeftCol = styled.div`
-  ${tw`flex flex-col justify-center items-center md:items-end`};
+  ${tw`flex flex-col justify-center items-center md:items-start`};
   ${tw`w-full md:w-3/5 lg:w-2/5`};
   ${tw`py-6 lg:pt-0 pl-2 pr-2 md:pl-6 md:pr-0`};
-  ${tw`text-center md:text-right`};
+  ${tw`text-center md:text-left`};
 `
 const RightCol = styled.div`
   ${tw`w-full md:w-2/5 lg:w-1/2  text-center relative`};
@@ -79,7 +79,7 @@ const RightCol = styled.div`
   }
 `
 const Intro = styled.p`
-  ${tw`uppercase font-typewritter text-xl leading-none text-orange-dark`};
+  ${tw`uppercase font-typewritter text-xl  text-orange-dark pt-2`};
   text-shadow: rgba(251, 29, 37, 0.86) 0px 0px 16.49px;
 `
 
@@ -96,15 +96,41 @@ const IconWrapper = styled.span`
   color: red;
 `
 
-const Hero = ({ heroText }) => (
+const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
   <SectionStyled>
     {/* <FireGradient /> */}
     <Container>
       <div className=" flex flex-col md:flex-row items-center md:items-start lg:items-center  text-white">
         {/* left col */}
         <LeftCol className="LeftCol">
-          <HeroHeading>Hours of Operation:</HeroHeading>
-          <Intro className="Intro">(Subject to change)</Intro>
+
+          {onlineOrdersOpen && (
+            <div>
+              <HeroHeading>Online Orders Open</HeroHeading>
+              <GrubHubLink
+                href="https://www.toasttab.com/corvo-bianco/v3"
+                target="_blank"
+                rel="noopener noreferrer"
+                alternate
+              >
+                <span>Place Pick-up Order Online </span>
+              </GrubHubLink>
+            </div>
+          )}
+
+          {!onlineOrdersOpen && (
+            <div>
+              <HeroHeading>Currently Sold Out for Online Orders</HeroHeading>
+              <Paragraph>
+              Please check back tomorrow.
+              </Paragraph>
+            </div>
+          )}
+
+          <Intro className="Intro">All items are scratch-made, stock is limited, we close when we sell out.</Intro>
+          <Paragraph>
+          <BlockContent blocks={hoursOfOperation} />
+          </Paragraph>
           {/* <Paragraph>
             <span>Delivery</span>
           </Paragraph> */}
@@ -116,19 +142,13 @@ const Hero = ({ heroText }) => (
             <span>Delivery (GrubHub)</span>
           </GrubHubLink> */}
 
+          {heroText && (
           <Paragraph>
             <BlockContent blocks={heroText} />
-            <br></br>
           </Paragraph>
+          )}
 
-          <GrubHubLink
-            href="https://www.toasttab.com/corvo-bianco/v3"
-            target="_blank"
-            rel="noopener noreferrer"
-            alternate
-          >
-            <span>Pick-up (ToastTab)</span>
-          </GrubHubLink>
+          
 
           
           <Paragraph second>
@@ -145,7 +165,7 @@ const Hero = ({ heroText }) => (
             rel="noopener noreferrer"
             alternate
           >
-            <span>HOB Beer (ToastTab)</span>
+            <span>Order HOB Beer Online</span>
           </GrubHubLink>
         </LeftCol>
         {/* right col */}
