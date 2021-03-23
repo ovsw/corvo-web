@@ -122,15 +122,21 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
             <div>
               <HeroHeading>Currently Sold Out for Online Orders</HeroHeading>
               <Paragraph>
-              Please check back tomorrow.
+              But still accepting in-person orders!
               </Paragraph>
             </div>
           )}
 
-          <Intro className="Intro">All items are scratch-made, stock is limited, we close when we sell out.</Intro>
+          {heroText && (
+          <Paragraph>
+            <Intro className="Intro"><BlockContent blocks={heroText} /></Intro>
+          </Paragraph>
+          )}
+          
           <Paragraph>
           <BlockContent blocks={hoursOfOperation} />
           </Paragraph>
+          
           {/* <Paragraph>
             <span>Delivery</span>
           </Paragraph> */}
@@ -142,11 +148,7 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
             <span>Delivery (GrubHub)</span>
           </GrubHubLink> */}
 
-          {heroText && (
-          <Paragraph>
-            <BlockContent blocks={heroText} />
-          </Paragraph>
-          )}
+          
 
           
 
