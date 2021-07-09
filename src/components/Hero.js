@@ -95,6 +95,10 @@ const Paragraph = styled.div`
 const IconWrapper = styled.span`
   color: red;
 `
+const SliceButton = styled.a`
+  ${tw`mt-8`};
+  display: block;
+`
 
 const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
   <SectionStyled>
@@ -135,6 +139,7 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
           
           <Paragraph>
           <BlockContent blocks={hoursOfOperation} />
+          <SliceButton href="https://slicelife.com/restaurants/fl/dunedin/34698/corvo-bianco-wood-fired-pizza/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source="><img src="https://slicelink-assets-production.imgix.net/partner-buttons/slice-button-small-red-start-order.png"/></SliceButton>
           </Paragraph>
           
           {/* <Paragraph>
