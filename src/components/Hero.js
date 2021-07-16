@@ -141,7 +141,7 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
           <Paragraph>
             <BlockContent blocks={hoursOfOperation} />
             <SliceButtonDiv>
-              <h2>Delivery Orders</h2>
+              <HeroHeading>Delivery Orders</HeroHeading>
               <SliceButton href="https://slicelife.com/restaurants/fl/dunedin/34698/corvo-bianco-wood-fired-pizza/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=">
                 <img src="https://slicelink-assets-production.imgix.net/partner-buttons/slice-button-small-red-start-order.png" />
               </SliceButton>
