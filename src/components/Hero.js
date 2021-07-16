@@ -1,34 +1,34 @@
-import React from 'react'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
+import React from "react";
+import styled from "styled-components";
+import tw from "tailwind.macro";
 
-import { TiWarning } from 'react-icons/ti'
-import BlockContent from './block-content'
+import { TiWarning } from "react-icons/ti";
+import BlockContent from "./block-content";
 
 // images
-import PaintedWoodTexture2 from '../images/h4-slide-33.jpg'
-import PizzaPlaceholder from '../images/Margareets3.png'
+import PaintedWoodTexture2 from "../images/h4-slide-33.jpg";
+import PizzaPlaceholder from "../images/Margareets3.png";
 
 // elements
-import Container from '../ui/Container'
-import BigTitle from '../ui/BigTitle'
+import Container from "../ui/Container";
+import BigTitle from "../ui/BigTitle";
 
 // styles
-import { StyledLink } from '../ui/Button'
+import { StyledLink } from "../ui/Button";
 
 const HeroHeading = styled(BigTitle)`
   ${tw`text-4xl md:text-5xl xl:text-5xl mt-2`}
-`
+`;
 
 const GrubHubLink = styled.a`
   ${tw`inline-block px-6 py-4 pt-6 text-lg md:text-xl uppercase font-typewritter mb-4`};
   color: white;
   text-shadow: 0 0 3px #ded1c1;
-  background-color: ${props => (props.alternate ? '#2e7c87' : 'red')};
+  background-color: ${(props) => (props.alternate ? "#2e7c87" : "red")};
   border-radius: 10px;
   box-shadow: #c1611f 0px 0px 14px;
   cursor: pointer;
-`
+`;
 
 const SectionStyled = styled.section`
   background-image: url(${PaintedWoodTexture2});
@@ -40,7 +40,7 @@ const SectionStyled = styled.section`
   @media (min-width: 900px) {
     background-position: top right;
   }
-`
+`;
 // const FireGradient = styled.div`
 //   ${tw`absolute w-1/3 h-full`};
 //   top: 0;
@@ -54,7 +54,7 @@ const LeftCol = styled.div`
   ${tw`w-full md:w-3/5 lg:w-2/5`};
   ${tw`py-6 lg:pt-0 pl-2 pr-2 md:pl-6 md:pr-0`};
   ${tw`text-center md:text-left`};
-`
+`;
 const RightCol = styled.div`
   ${tw`w-full md:w-2/5 lg:w-1/2  text-center relative`};
   ${tw`py-2 px-2`};
@@ -77,11 +77,11 @@ const RightCol = styled.div`
       max-width: 100%;
     }
   }
-`
+`;
 const Intro = styled.p`
   ${tw`uppercase font-typewritter text-xl  text-orange-dark pt-2`};
   text-shadow: rgba(251, 29, 37, 0.86) 0px 0px 16.49px;
-`
+`;
 
 const Paragraph = styled.div`
   ${tw`leading-normal mb-1  text-lg font-typewritter mt-3`};
@@ -90,15 +90,17 @@ const Paragraph = styled.div`
     background-color: black;
     ${tw`p-1`};
   }
-  ${props => (props.second ? 'margin-top: 2rem' : '')}
-`
+  ${(props) => (props.second ? "margin-top: 2rem" : "")}
+`;
 const IconWrapper = styled.span`
   color: red;
-`
+`;
 const SliceButton = styled.a`
-  ${tw`mt-8`};
   display: block;
-`
+`;
+const SliceButtonDiv = styled.div`
+  ${tw`mt-8`};
+`;
 
 const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
   <SectionStyled>
@@ -107,7 +109,6 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
       <div className=" flex flex-col md:flex-row items-center md:items-start lg:items-center  text-white">
         {/* left col */}
         <LeftCol className="LeftCol">
-
           {onlineOrdersOpen && (
             <div>
               <HeroHeading>Online Orders Open</HeroHeading>
@@ -125,23 +126,28 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
           {!onlineOrdersOpen && (
             <div>
               <HeroHeading>Currently Sold Out for Online Orders</HeroHeading>
-              <Paragraph>
-              But still accepting in-person orders!
-              </Paragraph>
+              <Paragraph>But still accepting in-person orders!</Paragraph>
             </div>
           )}
 
           {heroText && (
-          <Paragraph>
-            <Intro className="Intro"><BlockContent blocks={heroText} /></Intro>
-          </Paragraph>
+            <Paragraph>
+              <Intro className="Intro">
+                <BlockContent blocks={heroText} />
+              </Intro>
+            </Paragraph>
           )}
-          
+
           <Paragraph>
-          <BlockContent blocks={hoursOfOperation} />
-          <SliceButton href="https://slicelife.com/restaurants/fl/dunedin/34698/corvo-bianco-wood-fired-pizza/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source="><img src="https://slicelink-assets-production.imgix.net/partner-buttons/slice-button-small-red-start-order.png"/></SliceButton>
+            <BlockContent blocks={hoursOfOperation} />
+            <SliceButtonDiv>
+              <h2>Delivery Orders</h2>
+              <SliceButton href="https://slicelife.com/restaurants/fl/dunedin/34698/corvo-bianco-wood-fired-pizza/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=">
+                <img src="https://slicelink-assets-production.imgix.net/partner-buttons/slice-button-small-red-start-order.png" />
+              </SliceButton>
+            </SliceButtonDiv>
           </Paragraph>
-          
+
           {/* <Paragraph>
             <span>Delivery</span>
           </Paragraph> */}
@@ -153,14 +159,9 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
             <span>Delivery (GrubHub)</span>
           </GrubHubLink> */}
 
-          
-
-          
-
-          
           <Paragraph second>
             <span>
-               Beer, wine or cider goes great with pizza.
+              Beer, wine or cider goes great with pizza.
               <br />
               View HOB's menu here:
             </span>
@@ -183,6 +184,6 @@ const Hero = ({ heroText, hoursOfOperation, onlineOrdersOpen }) => (
       </div>
     </Container>
   </SectionStyled>
-)
+);
 
-export default Hero
+export default Hero;
